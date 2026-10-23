@@ -224,69 +224,32 @@ html,body{overflow-x:clip}h1,h2,h3{overflow-wrap:break-word}
 @media(max-width:1000px){.cm-b{margin-top:16px;padding:10px 14px 10px 10px}.cm-b span:not(.ic){display:none}.st .nr{gap:16px;margin-bottom:12px}.st .nr .ic{width:52px;height:52px;border-radius:16px;margin-bottom:6px}.st .nr .ic svg{width:26px;height:26px}.cm-w{font-size:34vw;bottom:10vh}}
 @media(prefers-reduced-motion:reduce){.cm-w{transform:none}.cm-bg i,.cm-w span{transition:none}}
 
-/* ===== v10: beneficios (lista expansible) ===== */
-#beneficios .ct{z-index:2}
-.bz{display:grid;grid-template-columns:.8fr 1.2fr;gap:72px;align-items:center}
-.bl{list-style:none;margin:0;padding:0}
-.bi{position:relative;border-top:1px solid var(--ln)}.bi:last-child{border-bottom:1px solid var(--ln)}
-.bi button{width:100%;display:flex;align-items:center;gap:20px;padding:20px 4px;background:none;border:0;color:rgba(255,255,255,.42);font:inherit;cursor:pointer;text-align:left;transition:color .5s var(--e),padding .6s var(--e)}
-.bi button:hover{color:rgba(255,255,255,.8)}
-.bi .n{width:28px;flex:none;font:600 12px var(--f);color:var(--cy);opacity:.55;transition:opacity .5s}
-.bi .t{flex:1;font-size:clamp(21px,2.7vw,36px);font-weight:500;letter-spacing:-.035em;line-height:1.05}
-.bi .ic{flex:none;opacity:0;transform:scale(.7) rotate(-12deg);transition:opacity .5s var(--e),transform .7s var(--e)}
-.bi.on button{color:#fff;padding-left:16px}.bi.on .n{opacity:1}.bi.on .t{background:linear-gradient(90deg,#fff 55%,var(--ac));-webkit-background-clip:text;background-clip:text;color:transparent}.bi.on .ic{opacity:1;transform:none}
-.bp{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .65s var(--e),visibility 0s .65s}.bp>div{overflow:hidden;min-height:0}
-.bi.on .bp{grid-template-rows:1fr;visibility:visible;transition-delay:0s}
-.bp p{margin:0 0 14px 60px;max-width:520px;color:var(--mu);font-size:14.5px;line-height:1.6;opacity:0;transform:translateY(8px);transition:opacity .5s var(--e),transform .6s var(--e)}
-.bp .chs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px 60px;opacity:0;transform:translateY(8px);transition:opacity .5s var(--e) .08s,transform .6s var(--e) .08s}
-.bp .chs span{font-size:11.5px;font-weight:500;padding:7px 13px;border-radius:99px;background:rgba(255,255,255,.07);border:1px solid var(--ln)}
-.bi.on .bp p,.bi.on .bp .chs{opacity:1;transform:none;transition-delay:.15s}
-.bi .pg{position:absolute;left:0;bottom:-1px;width:100%;height:2px;background:var(--ac);transform:scaleX(0);transform-origin:left;pointer-events:none}
-.bi.on .pg{animation:bpg 6s linear forwards}.bl:hover .bi.on .pg,.bl:focus-within .bi.on .pg{animation-play-state:paused}
-@keyframes bpg{to{transform:scaleX(1)}}
-@media(max-width:1000px){.bz{grid-template-columns:1fr;gap:32px}.bp p,.bp .chs{margin-left:48px}.bi button{gap:14px}}
-@media(max-width:560px){.bp p,.bp .chs{margin-left:0}.bi.on button{padding-left:4px}.bi .ic{width:40px;height:40px;border-radius:12px}.bi .ic svg{width:21px;height:21px}}
-@media(prefers-reduced-motion:reduce){.bi .pg{display:none}.bp,.bp p,.bp .chs,.bi .ic{transition:none}}
-
-/* ===== v11: beneficios por perfil ===== */
+/* ===== v13: beneficios simple ===== */
 #beneficios{--ac:var(--yl)}#beneficios[data-p=a]{--ac:var(--cy)}
-#beneficios .tg button[aria-selected=true]{background:var(--ac);border-color:var(--ac)}
-#beneficios .bi .ic{background:linear-gradient(135deg,color-mix(in srgb,var(--ac) 22%,transparent),rgba(27,80,216,.28));border-color:color-mix(in srgb,var(--ac) 50%,transparent)}#beneficios .bi .ic svg{stroke:var(--ac)}
-.bcta{display:flex;align-items:center;gap:18px;margin-top:30px;flex-wrap:wrap}.bcta span{font-size:12px;color:rgba(255,255,255,.55);max-width:210px;line-height:1.4}
-#beneficios .bcta .py{background:var(--ac)}
-.bl:not([hidden]){animation:blin .7s var(--e)}
-@keyframes blin{from{opacity:0;transform:translateY(16px)}}
-@media(prefers-reduced-motion:reduce){.bl:not([hidden]){animation:none}}
-
-/* ===== v12: beneficios en una sola pantalla ===== */
-#beneficios .ct{padding:clamp(88px,13svh,112px) 0 clamp(20px,4svh,40px)}
-#beneficios h2{font-size:clamp(22px,min(3.4vw,5.4svh),42px)}
+#beneficios .ct{z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;padding:clamp(92px,14svh,120px) 0 clamp(28px,6svh,56px)}
 #beneficios .k{margin-bottom:clamp(8px,2svh,16px)}
-#beneficios .sub{font-size:clamp(12.5px,min(1.2vw,2.1svh),15px);margin-top:clamp(8px,1.8svh,16px)}
-#beneficios .tg{margin-top:clamp(14px,3svh,26px)}#beneficios .tg button{padding:10px 22px}
-#beneficios .bcta{margin-top:clamp(14px,3svh,26px)}
-#beneficios .bcta .pill{padding:clamp(12px,2svh,17px) 26px}
-.bz{gap:clamp(32px,5vw,72px)}
-.bi button{padding:clamp(8px,1.6svh,15px) 4px;gap:16px}
-.bi .t{font-size:clamp(17px,min(2.2vw,3.5svh),28px)}
-.bi .n{font-size:11px}
-.bi .ic{width:clamp(36px,5.4svh,48px);height:clamp(36px,5.4svh,48px);border-radius:14px}.bi .ic svg{width:55%;height:55%}
-.bp p{margin:0 0 clamp(8px,1.4svh,12px) 60px;font-size:clamp(12.5px,1.9svh,14px);line-height:1.5;max-width:500px}
-.bp .chs{margin:0 0 clamp(12px,2.2svh,20px) 60px;gap:6px}.bp .chs span{font-size:11px;padding:5px 11px}
-@media(max-width:1000px){
-#beneficios .ct{padding:clamp(76px,11svh,92px) 0 18px}
-.bz{gap:clamp(12px,2.2svh,22px)}
-#beneficios .sub,.bcta span{display:none}
-#beneficios h2{font-size:clamp(20px,6.2vw,28px)}
-#beneficios .tg{margin-top:12px}#beneficios .bcta{margin-top:12px}
-#beneficios .tg button{padding:10px 8px}
-.bi button{padding:clamp(7px,1.3svh,12px) 2px;gap:12px}.bi .t{font-size:clamp(16px,4.6vw,22px)}
-.bp p,.bp .chs{margin-left:40px}
-}
-@media(max-width:560px){.bp p,.bp .chs{margin-left:0}.bp p{font-size:12.5px}.bp .chs span{font-size:10.5px;padding:4px 9px}.bi .ic{width:34px;height:34px;border-radius:11px}}
-
-@media(max-width:1000px) and (max-height:740px){#beneficios .k{display:none}#beneficios .ct{padding-top:74px;padding-bottom:12px}#beneficios h2{font-size:clamp(18px,5.4vw,23px)}.bi button{padding:5px 2px}.bi .ic{width:30px;height:30px}#beneficios .tg{margin-top:8px}#beneficios .bcta{margin-top:8px}#beneficios .tg button{padding:8px}#beneficios .bcta .pill{padding:10px 22px}.bz{gap:10px}.bp p{margin-bottom:6px}.bp .chs{margin-bottom:10px}}
-@media(max-width:1000px) and (max-height:660px){.bp .chs{display:none}.bp p{margin-bottom:10px}}
+#beneficios h2{font-size:clamp(28px,min(4.6vw,7.2svh),56px)}
+#beneficios h2 em{color:var(--ac);transition:color .5s}
+.seg{position:relative;display:inline-grid;grid-template-columns:1fr 1fr;margin-top:clamp(18px,3.6svh,32px);padding:5px;border-radius:99px;border:1px solid var(--ln);background:rgba(10,20,44,.6);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.seg:before{content:"";position:absolute;top:5px;bottom:5px;left:5px;width:calc(50% - 5px);border-radius:99px;background:var(--ac);transition:transform .55s var(--e),background .5s}
+#beneficios[data-p=a] .seg:before{transform:translateX(100%)}
+.seg button{position:relative;z-index:1;min-width:clamp(118px,13vw,150px);padding:12px 20px;background:none;border:0;border-radius:99px;font:600 13px var(--f);color:#fff;cursor:pointer;transition:color .4s}
+.seg button[aria-selected=true]{color:#0b2a6b}
+.bgw{width:100%;margin:clamp(28px,7svh,64px) 0 clamp(24px,5svh,44px)}
+.bg4{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,2.6vw,36px);text-align:left}
+.bg4:not([hidden]) .bx{animation:bxin .7s var(--e) backwards;animation-delay:calc(var(--i)*90ms)}
+@keyframes bxin{from{opacity:0;transform:translateY(22px)}}
+.bx{position:relative;border-top:2px solid var(--ln);padding-top:clamp(16px,3svh,26px)}
+.bx:before{content:"";position:absolute;top:-2px;left:0;height:2px;width:0;background:var(--ac);transition:width .7s var(--e)}
+.bx:hover:before{width:100%}
+.bx i{display:block;font:500 clamp(46px,min(6vw,9.5svh),88px)/.95 var(--f);font-style:normal;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.5px color-mix(in srgb,var(--ac) 70%,transparent);margin-bottom:clamp(10px,2svh,18px);transition:color .5s var(--e)}
+.bx:hover i{color:var(--ac)}
+.bx h3{font-size:clamp(17px,min(1.9vw,3.2svh),24px);font-weight:600;letter-spacing:-.03em;line-height:1.15;margin-bottom:8px}
+.bx p{margin:0;color:var(--mu);font-size:clamp(12.5px,min(1.1vw,2svh),14.5px);line-height:1.5}
+#beneficios .py{background:var(--ac)}
+@media(max-width:1000px){.bg4{grid-template-columns:1fr 1fr;gap:26px 22px}.bgw{margin:clamp(22px,4svh,36px) 0 clamp(20px,3.5svh,32px)}.bx i{font-size:clamp(38px,12vw,60px)}.bx h3{font-size:clamp(15px,4.4vw,19px)}.bx p{font-size:12.5px}#beneficios .ct{padding-top:clamp(80px,12svh,100px)}.seg button{min-width:clamp(110px,34vw,150px);padding:11px 14px}}
+@media(max-width:1000px) and (max-height:700px){#beneficios .k{display:none}#beneficios .ct{padding-top:74px;padding-bottom:16px}.bx i{font-size:36px;margin-bottom:6px}.bx{padding-top:12px}.bg4{gap:16px 18px}#beneficios h2{font-size:26px}.seg{margin-top:12px}.bgw{margin:16px 0}.pill{padding:13px 24px}}
+@media(prefers-reduced-motion:reduce){.bg4:not([hidden]) .bx{animation:none}.seg:before,.bx:before,.bx i{transition:none}}
 </style>
 </head>
 <body>
@@ -305,7 +268,7 @@ html,body{overflow-x:clip}h1,h2,h3{overflow-wrap:break-word}
 </section>
 <section class="scr" id="beneficios" data-l="Beneficios" data-p="v">
 <div class="mxbg" aria-hidden="true"></div>
-<div class="ct"><div class="bz"><div class="bz-h"><div class="k rv">Por qué MyShop</div><h2 class="rv" style="--d:1">Elegí tu perfil y mirá <em>qué ganás</em></h2><p class="sub rv" style="--d:2">Las características de cada plan, antes de registrarte.</p><div class="tg rv" style="--d:3" role="tablist" aria-label="Perfil"><button type="button" role="tab" data-bp="vendedor" aria-selected="true">Vendedor</button><button type="button" role="tab" data-bp="afiliado" aria-selected="false" tabindex="-1">Afiliado</button></div><div class="bcta rv" style="--d:4"><a class="pill py" id="bcta" href="#registro" data-r="vendedor">Quiero vender</a><span>Ya viste lo que ganás: el siguiente paso es el formulario.</span></div></div><div class="blw rv" style="--d:2"><ol class="bl" id="bl-vendedor"><li class="bi on"><button type="button" id="bb-v1" aria-controls="bp-v1" aria-expanded="true"><span class="n">01</span><span class="t">Sin inversión inicial</span><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5h4a1.8 1.8 0 0 1 0 3.5h-3a1.8 1.8 0 0 0 0 3.5h4.2"/></svg></span></button><div class="bp" id="bp-v1" role="region" aria-labelledby="bb-v1"><div><p>Empezás sin pagar nada. MyShop cobra una comisión solo cuando vendés.</p><div class="chs"><span>Sin costo de inicio</span><span>Comisión solo por venta</span></div></div></div><i class="pg" aria-hidden="true"></i></li><li class="bi"><button type="button" id="bb-v2" aria-controls="bp-v2" aria-expanded="false"><span class="n">02</span><span class="t">Tu catálogo en el marketplace</span><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l1.5-5h15L21 9M3 9h18M3 9v11h18V9M9 20v-6h6v6"/></svg></span></button><div class="bp" id="bp-v2" role="region" aria-labelledby="bb-v2"><div><p>Publicá tus productos y mostralos a compradores de tecnología en todo Bolivia.</p><div class="chs"><span>Catálogo propio</span><span>Visibilidad nacional</span></div></div></div><i class="pg" aria-hidden="true"></i></li><li class="bi"><button type="button" id="bb-v3" aria-controls="bp-v3" aria-expanded="false"><span class="n">03</span><span class="t">Atención automática con IA</span><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 8V4M9 13h.01M15 13h.01M9 16.5h6"/></svg></span></button><div class="bp" id="bp-v3" role="region" aria-labelledby="bb-v3"><div><p>Max responde consultas de stock y precio y recomienda tus productos las 24 horas.</p><div class="chs"><span>24 horas</span><span>Stock y precio</span><span>Recomienda tu catálogo</span></div></div></div><i class="pg" aria-hidden="true"></i></li><li class="bi"><button type="button" id="bb-v4" aria-controls="bp-v4" aria-expanded="false"><span class="n">04</span><span class="t">Cobros simples</span><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h3M20 17v4"/></svg></span></button><div class="bp" id="bp-v4" role="region" aria-labelledby="bb-v4"><div><p>Cobrás por QR o transferencia bancaria, como prefieras.</p><div class="chs"><span>QR</span><span>Transferencia bancaria</span></div></div></div><i class="pg" aria-hidden="true"></i></li><li class="bi"><button type="button" id="bb-v5" aria-controls="bp-v5" aria-expanded="false"><span class="n">05</span><span class="t">Envíos a todo el país</span><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span></button><div class="bp" id="bp-v5" role="region" aria-labelledby="bb-v5"><div><p>Vendé a compradores de La Paz, El Alto, Santa Cruz, Cochabamba y más ciudades.</p><div class="chs"><span>La Paz</span><span>El Alto</span><span>Santa Cruz</span><span>Cochabamba</span></div></div></div><i class="pg" aria-hidden="true"></i></li><li class="bi"><button type="button" id="bb-v6" aria-controls="bp-v6" aria-expanded="false"><span class="n">06</span><span class="t">Cuenta revisada</span><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></span></button><div class="bp" id="bp-v6" role="region" aria-labelledby="bb-v6"><div><p>Revisamos cada solicitud antes de activar tu cuenta.</p><div class="chs"><span>Datos de tu negocio</span><span>Revisión de solicitud</span></div></div></div><i class="pg" aria-hidden="true"></i></li></ol><ol class="bl" id="bl-afiliado" hidden><li class="bi on"><button type="button" id="bb-a1" aria-controls="bp-a1" aria-expanded="true"><span class="n">01</span><span class="t">Sin inversión</span><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5h4a1.8 1.8 0 0 1 0 3.5h-3a1.8 1.8 0 0 0 0 3.5h4.2"/></svg></span></button><div class="bp" id="bp-a1" role="region" aria-labelledby="bb-a1"><div><p>No ponés dinero para empezar. Ganás una comisión por cada compra hecha desde tu enlace.</p><div class="chs"><span>Sin costo de inicio</span><span>Comisión por compra</span></div></div></div><i class="pg" aria-hidden="true"></i></li><li class="bi"><button type="button" id="bb-a2" aria-controls="bp-a2" aria-expanded="false"><span class="n">02</span><span class="t">Tus enlaces para compartir</span><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span></button><div class="bp" id="bp-a2" role="region" aria-labelledby="bb-a2"><div><p>Cuando aprobamos tu perfil, recibís tus enlaces de afiliado.</p><div class="chs"><span>Enlaces propios</span><span>Listos para compartir</span></div></div></div><i class="pg" aria-hidden="true"></i></li><li class="bi"><button type="button" id="bb-a3" aria-controls="bp-a3" aria-expanded="false"><span class="n">03</span><span class="t">Compartí donde ya tenés público</span><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-3.6M8.2 13.2l7.6 3.6"/></svg></span></button><div class="bp" id="bp-a3" role="region" aria-labelledby="bb-a3"><div><p>Elegí tu canal y mostrá los productos a tu audiencia.</p><div class="chs"><span>WhatsApp</span><span>Instagram</span><span>TikTok</span><span>Facebook</span><span>YouTube</span></div></div></div><i class="pg" aria-hidden="true"></i></li><li class="bi"><button type="button" id="bb-a4" aria-controls="bp-a4" aria-expanded="false"><span class="n">04</span><span class="t">Sin stock, envíos ni clientes</span><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span></button><div class="bp" id="bp-a4" role="region" aria-labelledby="bb-a4"><div><p>Vos solo compartís los productos: no manejás stock ni envíos.</p><div class="chs"><span>Sin stock</span><span>Sin envíos</span><span>Sin clientes propios</span></div></div></div><i class="pg" aria-hidden="true"></i></li><li class="bi"><button type="button" id="bb-a5" aria-controls="bp-a5" aria-expanded="false"><span class="n">05</span><span class="t">Ganás por cada compra</span><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span></button><div class="bp" id="bp-a5" role="region" aria-labelledby="bb-a5"><div><p>Sumás comisión con cada compra desde tu enlace y cobrás por transferencia bancaria o QR.</p><div class="chs"><span>QR</span><span>Transferencia bancaria</span></div></div></div><i class="pg" aria-hidden="true"></i></li><li class="bi"><button type="button" id="bb-a6" aria-controls="bp-a6" aria-expanded="false"><span class="n">06</span><span class="t">Productos de tecnología</span><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l1.5-5h15L21 9M3 9h18M3 9v11h18V9M9 20v-6h6v6"/></svg></span></button><div class="bp" id="bp-a6" role="region" aria-labelledby="bb-a6"><div><p>Recomendá categorías que tu audiencia ya busca.</p><div class="chs"><span>Audio y micrófonos</span><span>Cámaras y seguridad</span><span>Radios y comunicación</span><span>Celulares y tablets</span><span>Automatización</span><span>Redes y conectividad</span></div></div></div><i class="pg" aria-hidden="true"></i></li></ol></div></div></div>
+<div class="ct"><div class="k rv">Por qué MyShop</div><h2 class="rv" style="--d:1">Mirá qué <em>ganás</em></h2><div class="seg rv" style="--d:2" role="tablist" aria-label="Perfil"><button type="button" role="tab" data-bp="vendedor" aria-selected="true">Vendedor</button><button type="button" role="tab" data-bp="afiliado" aria-selected="false" tabindex="-1">Afiliado</button></div><div class="bgw rv" style="--d:3"><div class="bg4" id="bl-vendedor" role="tabpanel"><div class="bx" style="--i:0"><i>01</i><h3>Sin inversión</h3><p>Pagás una comisión solo cuando vendés.</p></div><div class="bx" style="--i:1"><i>02</i><h3>Tu catálogo en todo Bolivia</h3><p>Compradores de todo el país ven tus productos.</p></div><div class="bx" style="--i:2"><i>03</i><h3>Max vende por vos</h3><p>Atención automática las 24 horas.</p></div><div class="bx" style="--i:3"><i>04</i><h3>Cobros simples</h3><p>Por QR o transferencia bancaria.</p></div></div><div class="bg4" id="bl-afiliado" role="tabpanel" hidden><div class="bx" style="--i:0"><i>01</i><h3>Sin inversión</h3><p>Ganás una comisión por cada compra.</p></div><div class="bx" style="--i:1"><i>02</i><h3>Tus enlaces</h3><p>Los recibís cuando aprobamos tu perfil.</p></div><div class="bx" style="--i:2"><i>03</i><h3>Sin stock ni envíos</h3><p>Solo compartís los productos.</p></div><div class="bx" style="--i:3"><i>04</i><h3>Cobrás fácil</h3><p>Por QR o transferencia bancaria.</p></div></div></div><div class="rv" style="--d:4"><a class="pill py" id="bcta" href="#registro" data-r="vendedor">Quiero vender</a></div></div>
 </section>
 
 <section class="scr" id="max" data-l="Max">
@@ -386,10 +349,8 @@ $("ed").onclick=()=>{$("out").hidden=true;$("form").hidden=false;$("form").query
 document.querySelectorAll("[role=tablist]").forEach(l=>l.addEventListener("keydown",e=>{const t=[...l.querySelectorAll("[role=tab]")],i=t.indexOf(document.activeElement),n={ArrowRight:i+1,ArrowLeft:i-1,Home:0,End:t.length-1}[e.key];if(i<0||n===undefined)return;e.preventDefault();const b=t[(n+t.length)%t.length];b.focus();b.click()}));
 document.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>{document.querySelectorAll("[data-q]").forEach(x=>{const o=x===b;x.setAttribute("aria-selected",o);x.tabIndex=o?0:-1});$("fq-v").hidden=b.dataset.q!=="v";$("fq-a").hidden=b.dataset.q!=="a"});
 /* beneficios */
-const hv=matchMedia("(hover:hover)").matches,BS=$("beneficios");
-function bgo(l,i){const it=[...l.querySelectorAll(".bi")];it.forEach((x,j)=>{const o=j===i;x.classList.toggle("on",o);x.querySelector("button").setAttribute("aria-expanded",o)})}
-document.querySelectorAll(".bl").forEach(l=>{const it=[...l.querySelectorAll(".bi")];it.forEach((x,i)=>{const b=x.querySelector("button");b.addEventListener("click",()=>bgo(l,i));if(hv)b.addEventListener("pointerenter",()=>bgo(l,i));x.querySelector(".pg").addEventListener("animationend",()=>bgo(l,(i+1)%it.length))})});
-function bprof(k){BS.dataset.p=k==="vendedor"?"v":"a";$("bl-vendedor").hidden=k!=="vendedor";$("bl-afiliado").hidden=k!=="afiliado";bgo($("bl-"+k),0);
+const BS=$("beneficios");
+function bprof(k){BS.dataset.p=k==="vendedor"?"v":"a";$("bl-vendedor").hidden=k!=="vendedor";$("bl-afiliado").hidden=k!=="afiliado";
 document.querySelectorAll("[data-bp]").forEach(b=>{const o=b.dataset.bp===k;b.setAttribute("aria-selected",o);b.tabIndex=o?0:-1});
 const c=$("bcta");c.dataset.r=k;c.textContent=k==="vendedor"?"Quiero vender":"Quiero afiliarme"}
 document.querySelectorAll("[data-bp]").forEach(b=>b.addEventListener("click",()=>bprof(b.dataset.bp)));
