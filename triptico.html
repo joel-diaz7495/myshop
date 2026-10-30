@@ -1,145 +1,390 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tríptico BúfalosOrder - Descarga</title>
-  <meta name="description" content="Descarga el tríptico informativo de BúfalosOrder">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #0f172a;
-      color: #f8fafc;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
-    .container {
-      max-width: 600px;
-      width: 100%;
-      text-align: center;
-    }
-    .logo {
-      width: 120px;
-      height: 120px;
-      border-radius: 24px;
-      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 2rem;
-      font-size: 3rem;
-    }
-    h1 {
-      font-size: clamp(1.5rem, 5vw, 2.5rem);
-      font-weight: 700;
-      margin-bottom: 1rem;
-      background: linear-gradient(135deg, #60a5fa 0%, #fbbf24 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    p {
-      color: #94a3b8;
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 2.5rem;
-    }
-    .download-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 1rem 2rem;
-      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-      color: #1e3a8a;
-      font-weight: 700;
-      font-size: 1.1rem;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 20px rgba(251, 191, 36, 0.3);
-    }
-    .download-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(251, 191, 36, 0.4);
-    }
-    .download-btn:active {
-      transform: translateY(0);
-    }
-    .download-btn svg {
-      width: 24px;
-      height: 24px;
-    }
-    .info {
-      margin-top: 2rem;
-      padding: 1.5rem;
-      background: rgba(30, 58, 138, 0.3);
-      border: 1px solid rgba(96, 165, 250, 0.2);
-      border-radius: 12px;
-      text-align: left;
-    }
-    .info h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #60a5fa;
-      margin-bottom: 0.75rem;
-    }
-    .info ul {
-      list-style: none;
-    }
-    .info li {
-      color: #94a3b8;
-      font-size: 0.9rem;
-      padding: 0.4rem 0;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .info li::before {
-      content: "✓";
-      color: #22c55e;
-      font-weight: bold;
-    }
-    .footer {
-      margin-top: 3rem;
-      color: #64748b;
-      font-size: 0.85rem;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BúfalosOrder · Sistema de pedidos y ventas</title>
+<meta name="description" content="BúfalosOrder: sistema cliente-servidor local para pedidos, cobros, inventario, gastos y reportes de la tienda de comida rápida Búfalos. Funciona en red local sin depender de internet.">
+<meta name="theme-color" content="#120608">
+<meta property="og:type" content="website">
+<meta property="og:title" content="BúfalosOrder · Sistema de pedidos y ventas">
+<meta property="og:description" content="POS cliente-servidor local para Búfalos. Pedidos, stock atómico, tiempo real y reportes sin nube.">
+<meta property="og:image" content="logo.jpg">
+<link rel="icon" href="logo.jpg">
+<style>
+:root{
+  --bg:#120608;
+  --bg2:#1a080c;
+  --red:#e11d2e;
+  --red2:#ff3b30;
+  --gold:#f5b921;
+  --gold2:#ffd24a;
+  --ink:#f7ece4;
+  --muted:#c9a89f;
+  --line:rgba(245,185,33,.18);
+  --card:rgba(38,12,16,.72);
+  --f:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --e:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font:400 16px/1.65 var(--f);color:var(--ink);
+  background:
+    radial-gradient(60% 45% at 85% 0%,rgba(225,29,46,.22),transparent 70%),
+    radial-gradient(50% 40% at 0% 30%,rgba(245,185,33,.08),transparent 70%),
+    var(--bg);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+h1,h2,h3{margin:0;line-height:1.1;letter-spacing:-.02em}
+p{margin:0}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{width:min(1140px,100% - 40px);margin:0 auto}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.eyebrow:before{content:"";width:30px;height:2px;background:var(--gold)}
+.section{padding:clamp(56px,9vw,104px) 0}
+.section h2{font-size:clamp(26px,4.2vw,44px);font-weight:800}
+.lead{color:var(--muted);font-size:clamp(15px,1.7vw,18px);max-width:680px;margin-top:14px}
+
+/* NAV */
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(18,6,8,.72);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:18px;height:72px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:17px}
+.brand img{width:42px;height:42px;border-radius:50%;box-shadow:0 0 0 2px rgba(245,185,33,.5)}
+.nav nav{margin-left:auto;display:flex;gap:26px;align-items:center}
+.nav nav a{font-size:14px;color:var(--muted);font-weight:600;transition:color .2s}
+.nav nav a:hover{color:var(--gold)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:15px;padding:13px 22px;border-radius:12px;border:1px solid transparent;cursor:pointer;transition:transform .2s var(--e),box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#3a1500;box-shadow:0 10px 30px rgba(245,185,33,.28)}
+.btn-gold:hover{box-shadow:0 14px 38px rgba(245,185,33,.4)}
+.btn-ghost{background:rgba(255,255,255,.04);border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{background:rgba(245,185,33,.1)}
+.btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.nav .btn{padding:10px 18px;font-size:13.5px}
+@media(max-width:860px){.nav nav{display:none}}
+
+/* HERO */
+.hero{position:relative;padding:clamp(48px,8vw,96px) 0 clamp(40px,6vw,72px)}
+.hero:after{content:"";position:absolute;inset:auto 0 0 0;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(30px,5vw,64px);align-items:center}
+.hero h1{font-size:clamp(34px,6.2vw,62px);font-weight:900;letter-spacing:-.035em}
+.hero h1 .grad{background:linear-gradient(110deg,var(--gold2) 10%,var(--red2) 90%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero .lead{margin-top:20px}
+.tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+.tag{font-size:12.5px;font-weight:600;color:var(--gold);border:1px solid var(--line);background:rgba(245,185,33,.06);padding:7px 13px;border-radius:99px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.hero-art{position:relative;display:grid;place-items:center}
+.hero-art .glow{position:absolute;width:min(420px,90%);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(225,29,46,.55),rgba(245,185,33,.15) 55%,transparent 72%);filter:blur(30px)}
+.hero-art img{position:relative;width:min(380px,82%);border-radius:26px;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(245,185,33,.25)}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.hero-art{order:-1}.hero-art img{width:min(240px,60%)}}
+
+/* STATS */
+.stats{border-block:1px solid var(--line);background:rgba(38,12,16,.4)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:26px 0}
+.stat b{display:block;font-size:clamp(24px,3.4vw,34px);font-weight:900;color:var(--gold)}
+.stat span{font-size:13px;color:var(--muted)}
+@media(max-width:640px){.stats .wrap{grid-template-columns:1fr 1fr;gap:24px}}
+
+/* CARDS */
+.grid{display:grid;gap:18px;margin-top:40px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;transition:transform .25s var(--e),border-color .25s,background .25s}
+.card:hover{transform:translateY(-4px);border-color:rgba(245,185,33,.45);background:rgba(48,15,20,.8)}
+.card .ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(225,29,46,.28),rgba(245,185,33,.16));border:1px solid var(--line);margin-bottom:18px}
+.card .ic svg{width:26px;height:26px;fill:none;stroke:var(--gold);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:18px;font-weight:800;margin-bottom:8px}
+.card p{color:var(--muted);font-size:14.5px}
+.prob .ic{background:linear-gradient(135deg,rgba(225,29,46,.35),rgba(225,29,46,.1))}
+.prob .ic svg{stroke:var(--red2)}
+@media(max-width:900px){.g3{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.g3,.g2{grid-template-columns:1fr}}
+
+/* DIFFERENTIALS */
+.diffs{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:36px}
+.diff{display:flex;gap:14px;align-items:flex-start;padding:18px 20px;border:1px solid var(--line);border-radius:14px;background:rgba(38,12,16,.5)}
+.diff .n{flex:none;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-size:13px;font-weight:800;color:#3a1500;background:linear-gradient(135deg,var(--gold2),var(--gold))}
+.diff b{display:block;font-size:15px;font-weight:700}
+.diff span{color:var(--muted);font-size:13.5px}
+@media(max-width:700px){.diffs{grid-template-columns:1fr}}
+
+/* ARCHITECTURE */
+.arch{display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:center;margin-top:44px}
+.arch .col{display:grid;gap:12px}
+.node{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:rgba(38,12,16,.6);font-size:14px;font-weight:600;text-align:center}
+.node small{display:block;font-weight:400;color:var(--muted);font-size:12px;margin-top:2px}
+.node.server{border-color:rgba(245,185,33,.5);background:linear-gradient(160deg,rgba(225,29,46,.25),rgba(245,185,33,.1));padding:24px 18px}
+.node.server b{color:var(--gold);font-size:16px}
+.arch .mid{display:grid;gap:10px;justify-items:center;color:var(--gold);font-size:12px;font-weight:700;text-align:center}
+.arch .mid .arrow{width:2px;height:34px;background:linear-gradient(var(--gold),transparent)}
+.arch .mid .arrow.rev{background:linear-gradient(transparent,var(--gold))}
+.arch .mid span{writing-mode:horizontal-tb}
+@media(max-width:760px){.arch{grid-template-columns:1fr}.arch .mid{grid-auto-flow:column}.arch .mid .arrow{width:34px;height:2px;background:linear-gradient(90deg,var(--gold),transparent)}.arch .mid .arrow.rev{background:linear-gradient(90deg,transparent,var(--gold))}}
+
+/* SCOPE */
+.scope{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:36px}
+.scope .box{border:1px solid var(--line);border-radius:18px;padding:26px;background:rgba(38,12,16,.5)}
+.scope .box.out{border-color:rgba(225,29,46,.3)}
+.scope h3{font-size:16px;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.scope ul{list-style:none;margin:0;padding:0;display:grid;gap:11px}
+.scope li{display:flex;gap:10px;font-size:14px;color:var(--muted)}
+.scope .box.in li:before{content:"✓";color:#4ade80;font-weight:800}
+.scope .box.out li:before{content:"×";color:var(--red2);font-weight:800}
+@media(max-width:700px){.scope{grid-template-columns:1fr}}
+
+/* DOWNLOAD */
+.download{position:relative;text-align:center;border:1px solid var(--line);border-radius:26px;padding:clamp(36px,6vw,64px) 24px;background:radial-gradient(80% 120% at 50% 0%,rgba(225,29,46,.3),rgba(18,6,8,.9) 70%);overflow:hidden}
+.download .eyebrow{justify-content:center}
+.download h2{margin-top:14px}
+.download p{color:var(--muted);max-width:560px;margin:14px auto 0}
+.download .btn{margin-top:28px;font-size:17px;padding:16px 30px}
+.fileinfo{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 26px;margin-top:26px;font-size:13px;color:var(--muted)}
+.fileinfo span{display:flex;align-items:center;gap:8px}
+.fileinfo svg{width:16px;height:16px;fill:none;stroke:var(--gold);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.foot{text-align:center;padding:40px 0 54px;color:var(--muted);font-size:13px}
+.foot .brand{justify-content:center;margin-bottom:14px;color:var(--ink)}
+.foot .brand img{width:34px;height:34px}
+</style>
 </head>
 <body>
-  <div class="container">
-    <div class="logo">📄</div>
-    <h1>Tríptico BúfalosOrder</h1>
-    <p>Descarga el tríptico informativo completo con todos los detalles sobre BúfalosOrder.</p>
-    
-    <a href="Tríptico%20BúfalosOrder%20(1).pdf" class="download-btn" download>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-        <polyline points="7 10 12 15 17 10"/>
-        <line x1="12" y1="15" x2="12" y2="3"/>
-      </svg>
-      Descargar PDF
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="logo.jpg" alt="Logo BúfalosOrder"> BúfalosOrder</a>
+    <nav>
+      <a href="#problema">Problema</a>
+      <a href="#solucion">Solución</a>
+      <a href="#arquitectura">Arquitectura</a>
+      <a href="#alcance">Alcance</a>
+      <a href="#descarga">Descarga</a>
+    </nav>
+    <a class="btn btn-gold" href="#descarga">
+      <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Descargar tríptico
     </a>
-
-    <div class="info">
-      <h3>Información del archivo</h3>
-      <ul>
-        <li>Formato: PDF</li>
-        <li>Tamaño: ~1.3 MB</li>
-        <li>Páginas: Tríptico (3 paneles)</li>
-      </ul>
-    </div>
-
-    <div class="footer">
-      BúfalosOrder · Descarga directa desde GitHub Pages
-    </div>
   </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Sistema cliente-servidor local</span>
+        <h1>Búfalos<span class="grad">Order</span></h1>
+        <p class="lead">Sistema móvil para la gestión de pedidos y ventas de la tienda de comida rápida <strong>Búfalos</strong>. Digitaliza pedidos, cobros, inventario, gastos y reportes sobre una red local, sin depender de internet.</p>
+        <div class="tags">
+          <span class="tag">Android nativo · Java</span>
+          <span class="tag">SQLite / Room</span>
+          <span class="tag">HTTP + WebSocket</span>
+          <span class="tag">Stock atómico</span>
+          <span class="tag">Sin nube</span>
+        </div>
+        <div class="hero-cta">
+          <a class="btn btn-gold" href="#descarga">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Descargar tríptico PDF
+          </a>
+          <a class="btn btn-ghost" href="#solucion">Conocer el sistema</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <span class="glow" aria-hidden="true"></span>
+        <img src="logo.jpg" alt="BúfalosOrder, toro en llamas">
+      </div>
+    </div>
+  </section>
+
+  <section class="stats" aria-label="Datos del sistema">
+    <div class="wrap">
+      <div class="stat"><b>3</b><span>Roles: mesero, cajero, administrador</span></div>
+      <div class="stat"><b>6</b><span>Módulos operativos</span></div>
+      <div class="stat"><b>20</b><span>Tablas en SQLite v17</span></div>
+      <div class="stat"><b>60</b><span>Rutas HTTP + WebSocket</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="problema">
+    <div class="wrap">
+      <span class="eyebrow">El problema</span>
+      <h2>La operación en papel cuesta tiempo y dinero</h2>
+      <p class="lead">Antes de BúfalosOrder, el local trabajaba con comandas de papel, cálculos manuales y un cierre de caja lento. Eso generaba errores, sobreventa y ninguna información confiable para decidir.</p>
+      <div class="grid g3 prob">
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></div>
+          <h3>Pedidos en papel</h3>
+          <p>Doble captura y errores al pasar la comanda a caja.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 9l1.5-5h15L21 9M3 9h18M3 9v11h18V9M9 20v-6h6v6"/></svg></div>
+          <h3>Inventario sin control</h3>
+          <p>Stock desactualizado y riesgo de sobreventa.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div>
+          <h3>Cierre de caja manual</h3>
+          <p>Entre 45 y 60 minutos para cuadrar el día.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg></div>
+          <h3>Falta de reportes</h3>
+          <p>Sin datos confiables de ventas, caja ni utilidad.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M5 12a7 7 0 0 1 14 0"/><path d="M2 12a10 10 0 0 1 20 0M8.5 16.5a5 5 0 0 1 7 0M12 20h.01"/></svg></div>
+          <h3>Cortes de internet</h3>
+          <p>Las soluciones en la nube dejan de operar.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div>
+          <h3>Sin trazabilidad</h3>
+          <p>No se sabe quién creó, cobró o canceló cada pedido.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="solucion">
+    <div class="wrap">
+      <span class="eyebrow">La solución</span>
+      <h2>Un POS móvil con la verdad del negocio en el servidor</h2>
+      <p class="lead">Las tablets de salón y caja se conectan a una tablet servidor. El servidor asigna el número de orden, valida y descuenta stock, autentica usuarios, registra auditoría e imprime los tickets.</p>
+      <div class="grid g3">
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></div>
+          <h3>Pedidos</h3>
+          <p>Variantes, modificadores, salsas, para llevar y pago mixto.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="4"/></svg></div>
+          <h3>Cocina y entregas</h3>
+          <p>Pedidos nuevos en tiempo real por WebSocket.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.3 7L12 12l8.7-5M12 22V12"/></svg></div>
+          <h3>Inventario</h3>
+          <p>Entradas, salidas, ventas, ajustes y alertas de stock.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div>
+          <h3>Gastos</h3>
+          <p>Gastos diarios y generales con cola offline y sincronización.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg></div>
+          <h3>Reportes</h3>
+          <p>Día, caja, inventario, mensual y auditoría. PDF en el cliente.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div>
+          <h3>Administración</h3>
+          <p>Menú, usuarios, roles, dispositivos y auditoría.</p>
+        </div>
+      </div>
+
+      <h2 style="margin-top:clamp(56px,8vw,88px);font-size:clamp(24px,3.4vw,36px)">Diferenciales que se pueden defender</h2>
+      <div class="diffs">
+        <div class="diff"><span class="n">01</span><div><b>Servidor local como fuente de verdad</b><span>Numeración, stock, usuarios, auditoría e impresión sin internet.</span></div></div>
+        <div class="diff"><span class="n">02</span><div><b>Stock atómico</b><span>Descuento condicional en transacción: si no alcanza, se revierte todo.</span></div></div>
+        <div class="diff"><span class="n">03</span><div><b>Tiempo real con WebSocket</b><span>Cocina y tablets reciben pedidos y cambios sin polling.</span></div></div>
+        <div class="diff"><span class="n">04</span><div><b>Emparejamiento por QR de un solo uso</b><span>Cada tablet se autoriza una vez y puede revocarse.</span></div></div>
+        <div class="diff"><span class="n">05</span><div><b>PIN hasheado con PBKDF2</b><span>Salt por usuario y comparación en tiempo constante.</span></div></div>
+        <div class="diff"><span class="n">06</span><div><b>Snapshots históricos</b><span>El pedido antiguo conserva nombre y precio vendidos.</span></div></div>
+        <div class="diff"><span class="n">07</span><div><b>Montos en centavos</b><span>Se evita el error de punto flotante en precios y totales.</span></div></div>
+        <div class="diff"><span class="n">08</span><div><b>Idempotencia por UUID</b><span>Los reintentos no duplican pedidos ni gastos.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="arquitectura">
+    <div class="wrap">
+      <span class="eyebrow">Arquitectura</span>
+      <h2>Cliente-servidor sobre red local</h2>
+      <p class="lead">HTTP para las operaciones y WebSocket para los eventos de cocina y stock. Todo dentro de la red del local.</p>
+      <div class="arch">
+        <div class="col">
+          <div class="node">Tablet cliente 1<small>Salón</small></div>
+          <div class="node">Tablet cliente 2<small>Caja</small></div>
+          <div class="node">Tablet cliente 3<small>Cocina</small></div>
+        </div>
+        <div class="mid" aria-hidden="true">
+          <span>HTTP · WebSocket</span>
+          <span class="arrow"></span>
+          <span class="arrow rev"></span>
+        </div>
+        <div class="col">
+          <div class="node server"><b>Tablet servidor</b><small>API · reglas · transacciones</small></div>
+          <div class="node">Room / SQLite<small>20 tablas · v17</small></div>
+          <div class="node">Impresora térmica<small>Bluetooth · ESC/POS</small></div>
+          <div class="node">Auditoría<small>Acciones sensibles</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="alcance">
+    <div class="wrap">
+      <span class="eyebrow">Alcance</span>
+      <h2>Diseñado para un local, con red propia</h2>
+      <p class="lead">El sistema está dimensionado para un local individual con varias tablets. Estos son los límites declarados del proyecto.</p>
+      <div class="scope">
+        <div class="box in">
+          <h3>Dentro del alcance</h3>
+          <ul>
+            <li>Un local individual con red local</li>
+            <li>Varias tablets cliente y una servidor</li>
+            <li>Pedidos, cocina, inventario, gastos y reportes</li>
+            <li>Impresión térmica desde el servidor</li>
+            <li>Operación sin depender de internet</li>
+            <li>Auditoría de acciones sensibles</li>
+          </ul>
+        </div>
+        <div class="box out">
+          <h3>Fuera del alcance</h3>
+          <ul>
+            <li>Nube operativa (Supabase diseñado, no integrado)</li>
+            <li>Facturación fiscal</li>
+            <li>Multi-sede</li>
+            <li>Alta disponibilidad y failover</li>
+            <li>Offline completo de pedidos (solo gastos)</li>
+            <li>Backups automáticos verificados</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="descarga">
+    <div class="wrap">
+      <div class="download">
+        <span class="eyebrow">Descarga</span>
+        <h2>Tríptico BúfalosOrder</h2>
+        <p>Descarga el tríptico informativo completo con el resumen del sistema, sus módulos, arquitectura y alcance.</p>
+        <a href="Tríptico%20BúfalosOrder%20(1).pdf" class="btn btn-gold" download>
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Descargar tríptico PDF
+        </a>
+        <div class="fileinfo">
+          <span><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg> Formato PDF</span>
+          <span><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5M12 15V3"/></svg> ~1.3 MB</span>
+          <span><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg> Tríptico de 3 paneles</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="brand"><img src="logo.jpg" alt="BúfalosOrder"> BúfalosOrder</div>
+    <p>Sistema móvil para la gestión de pedidos y ventas de la tienda de comida rápida Búfalos.</p>
+    <p style="margin-top:8px">Cliente-servidor local · Android · SQLite · Sin nube</p>
+  </div>
+</footer>
+
 </body>
 </html>
