@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tríptico BúfalosOrder - Descarga</title>
+  <meta name="description" content="Descarga el tríptico informativo de BúfalosOrder">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+    }
+    .logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem;
+      font-size: 3rem;
+    }
+    h1 {
+      font-size: clamp(1.5rem, 5vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #60a5fa 0%, #fbbf24 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    p {
+      color: #94a3b8;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+    }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+      color: #1e3a8a;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(251, 191, 36, 0.3);
+    }
+    .download-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(251, 191, 36, 0.4);
+    }
+    .download-btn:active {
+      transform: translateY(0);
+    }
+    .download-btn svg {
+      width: 24px;
+      height: 24px;
+    }
+    .info {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: rgba(30, 58, 138, 0.3);
+      border: 1px solid rgba(96, 165, 250, 0.2);
+      border-radius: 12px;
+      text-align: left;
+    }
+    .info h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #60a5fa;
+      margin-bottom: 0.75rem;
+    }
+    .info ul {
+      list-style: none;
+    }
+    .info li {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      padding: 0.4rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .info li::before {
+      content: "✓";
+      color: #22c55e;
+      font-weight: bold;
+    }
+    .footer {
+      margin-top: 3rem;
+      color: #64748b;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">📄</div>
+    <h1>Tríptico BúfalosOrder</h1>
+    <p>Descarga el tríptico informativo completo con todos los detalles sobre BúfalosOrder.</p>
+    
+    <a href="Tríptico%20BúfalosOrder%20(1).pdf" class="download-btn" download>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      Descargar PDF
+    </a>
+
+    <div class="info">
+      <h3>Información del archivo</h3>
+      <ul>
+        <li>Formato: PDF</li>
+        <li>Tamaño: ~1.3 MB</li>
+        <li>Páginas: Tríptico (3 paneles)</li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      BúfalosOrder · Descarga directa desde GitHub Pages
+    </div>
+  </div>
+</body>
+</html>
